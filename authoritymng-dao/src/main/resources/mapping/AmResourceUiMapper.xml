@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cw.authoritymng.mapper.AmResourceUiMapper">
-  <resultMap id="BaseResultMap" type="com.cw.authoritymng.model.AmResourceUi">
+<mapper namespace="com.cw.authoritymng.dao.mapper.AmResourceUiMapper">
+  <resultMap id="BaseResultMap" type="com.cw.authoritymng.dao.model.AmResourceUi">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="resource_id" jdbcType="INTEGER" property="resourceId" />
     <result column="ui_id" jdbcType="INTEGER" property="uiId" />
@@ -19,13 +19,13 @@
     delete from am_resource_ui
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.cw.authoritymng.model.AmResourceUi">
+  <insert id="insert" parameterType="com.cw.authoritymng.dao.model.AmResourceUi">
     insert into am_resource_ui (id, resource_id, ui_id
       )
     values (#{id,jdbcType=INTEGER}, #{resourceId,jdbcType=INTEGER}, #{uiId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cw.authoritymng.model.AmResourceUi">
+  <insert id="insertSelective" parameterType="com.cw.authoritymng.dao.model.AmResourceUi">
     insert into am_resource_ui
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cw.authoritymng.model.AmResourceUi">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cw.authoritymng.dao.model.AmResourceUi">
     update am_resource_ui
     <set>
       <if test="resourceId != null">
@@ -62,7 +62,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cw.authoritymng.model.AmResourceUi">
+  <update id="updateByPrimaryKey" parameterType="com.cw.authoritymng.dao.model.AmResourceUi">
     update am_resource_ui
     set resource_id = #{resourceId,jdbcType=INTEGER},
       ui_id = #{uiId,jdbcType=INTEGER}

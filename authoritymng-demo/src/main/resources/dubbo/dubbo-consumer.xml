@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="authority_mng_consumer"/>
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry address="zookeeper://192.168.31.231:2181" protocol="zookeeper" check="false"/>
+    <!--<dubbo:consumer check="false"/>-->
+    <dubbo:protocol name="dubbo" port="20880" />
+    <!--<bean id="amUserBiz" class="com.cw.authoritymng.biz.AmUserBiz"/>-->
+    <dubbo:reference id="amUserFacade" interface="com.cw.authoritymng.facade.AmUserFacade"/>
+
+</beans>

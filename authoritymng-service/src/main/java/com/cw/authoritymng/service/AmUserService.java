@@ -1,6 +1,6 @@
 package com.cw.authoritymng.service;
 
-import com.cw.authoritymng.model.AmUser;
+import com.cw.authoritymng.dao.model.AmUser;
 
 import java.util.List;
 

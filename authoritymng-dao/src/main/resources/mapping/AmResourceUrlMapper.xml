@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cw.authoritymng.mapper.AmResourceUrlMapper">
-  <resultMap id="BaseResultMap" type="com.cw.authoritymng.model.AmResourceUrl">
+<mapper namespace="com.cw.authoritymng.dao.mapper.AmResourceUrlMapper">
+  <resultMap id="BaseResultMap" type="com.cw.authoritymng.dao.model.AmResourceUrl">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="resource_id" jdbcType="INTEGER" property="resourceId" />
     <result column="url_id" jdbcType="INTEGER" property="urlId" />
@@ -20,13 +20,13 @@
     delete from am_resource_url
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.cw.authoritymng.model.AmResourceUrl">
+  <insert id="insert" parameterType="com.cw.authoritymng.dao.model.AmResourceUrl">
     insert into am_resource_url (id, resource_id, url_id, 
       url_type)
     values (#{id,jdbcType=INTEGER}, #{resourceId,jdbcType=INTEGER}, #{urlId,jdbcType=INTEGER}, 
       #{urlType,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.cw.authoritymng.model.AmResourceUrl">
+  <insert id="insertSelective" parameterType="com.cw.authoritymng.dao.model.AmResourceUrl">
     insert into am_resource_url
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cw.authoritymng.model.AmResourceUrl">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cw.authoritymng.dao.model.AmResourceUrl">
     update am_resource_url
     <set>
       <if test="resourceId != null">
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cw.authoritymng.model.AmResourceUrl">
+  <update id="updateByPrimaryKey" parameterType="com.cw.authoritymng.dao.model.AmResourceUrl">
     update am_resource_url
     set resource_id = #{resourceId,jdbcType=INTEGER},
       url_id = #{urlId,jdbcType=INTEGER},

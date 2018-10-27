@@ -1,7 +1,7 @@
 package com.cw.authoritymng.service.impl;
 
-import com.cw.authoritymng.mapper.AmUserMapper;
-import com.cw.authoritymng.model.AmUser;
+import com.cw.authoritymng.dao.mapper.AmUserMapper;
+import com.cw.authoritymng.dao.model.AmUser;
 import com.cw.authoritymng.service.AmUserService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

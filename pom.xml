@@ -11,12 +11,13 @@
 	<description>Demo project for Spring Boot</description>
 
 	<modules>
+		<module>authoritymng-common</module>
 		<module>authoritymng-dao</module>
 		<module>authoritymng-web</module>
 		<module>authoritymng-service</module>
 		<module>authoritymng-biz</module>
-		<module>authoritymng-common</module>
 		<module>authoritymng-facade</module>
+		<module>authoritymng-demo</module>
 	</modules>
 
 	<properties>
@@ -32,27 +33,27 @@
 			<dependency>
 				<groupId>com.cw.authoritymng</groupId>
 				<artifactId>authoritymng-common</artifactId>
-				<version>${project.parent.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.cw.authoritymng</groupId>
 				<artifactId>authoritymng-dao</artifactId>
-				<version>${project.parent.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.cw.authoritymng</groupId>
 				<artifactId>authoritymng-service</artifactId>
-				<version>${project.parent.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.cw.authoritymng</groupId>
 				<artifactId>authoritymng-biz</artifactId>
-				<version>${project.parent.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.cw.authoritymng</groupId>
 				<artifactId>authoritymng-facade</artifactId>
-				<version>${project.parent.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 
 			<!-- ============== spring ============== -->
@@ -65,6 +66,76 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-jdbc</artifactId>
 				<version>${springboot.version}</version>
+			</dependency>
+
+			<!-- ============== dubbo ============== -->
+			<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>4.1.30.Final</version>
+			</dependency>
+
+			<!--<dependency>-->
+				<!--<groupId>com.101tec</groupId>-->
+				<!--<artifactId>zkclient</artifactId>-->
+				<!--<exclusions>-->
+					<!--<exclusion>-->
+						<!--<artifactId>slf4j-log4j12</artifactId>-->
+						<!--<groupId>org.slf4j</groupId>-->
+					<!--</exclusion>-->
+				<!--</exclusions>-->
+				<!--<version>0.9</version>-->
+			<!--</dependency>-->
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>3.4.13</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-log4j12</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-framework -->
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-framework</artifactId>
+				<version>4.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-client</artifactId>
+				<version>4.0.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>2.6.4</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-aop</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-beans</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-web</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<!-- ============== common ============== -->
