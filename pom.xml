@@ -28,8 +28,7 @@
 
 	<dependencyManagement>
 		<dependencies>
-
-			<!-- ============== models ============== -->
+			<!-- ============== modules ============== -->
 			<dependency>
 				<groupId>com.cw.authoritymng</groupId>
 				<artifactId>authoritymng-common</artifactId>
