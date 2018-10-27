@@ -12,7 +12,6 @@
 
 	<modules>
 		<module>authoritymng-dao</module>
-        <module>authoritymng-appstarter</module>
 		<module>authoritymng-web</module>
 		<module>authoritymng-service</module>
 		<module>authoritymng-biz</module>
