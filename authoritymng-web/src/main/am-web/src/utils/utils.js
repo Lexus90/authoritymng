@@ -181,3 +181,9 @@ export function formatWan(val) {
 export function isAntdPro() {
   return window.location.hostname === 'preview.pro.ant.design';
 }
+
+export function getURI() {
+  let url = new URL(location.href);
+  let origin = url.origin;
+  return origin.substr(0, origin.lastIndexOf(':') + 1)+'8080';
+}

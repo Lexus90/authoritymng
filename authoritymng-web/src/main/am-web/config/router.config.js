@@ -17,8 +17,36 @@ export default [
     Routes: ['src/pages/Authorized'],
     authority: ['admin', 'user'],
     routes: [
-      // dashboard
-      { path: '/', redirect: '/dashboard/analysis' },
+
+      { path: '/project', redirect: '/project/info' },
+      { path: '/users', redirect: '/users/list' },
+      {
+          path: '/users/list',
+          name: '用户管理',
+          component: './UserMng/UserPage',
+      },
+      {
+          path: '/project',
+          name: '项目管理',
+          routes: [
+              {
+                  path: '/project/info',
+                  name: '基础信息',
+                  component: './ProjMng/ProjInfoPage',
+              },
+              {
+                  path: '/project/resource',
+                  name: '资源管理',
+                  component: './ProjMng/ResourcePage',
+              },
+              {
+                  path: '/project/role',
+                  name: '角色管理',
+                  component: './ProjMng/ResourcePage',
+              },
+
+          ]
+      },
       {
         path: '/dashboard',
         name: 'dashboard',
@@ -88,7 +116,6 @@ export default [
           },
         ],
       },
-      // list
       {
         path: '/list',
         icon: 'table',

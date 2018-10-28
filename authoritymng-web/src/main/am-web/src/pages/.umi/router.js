@@ -46,9 +46,47 @@ let routes = [
     ],
     "routes": [
       {
-        "path": "/",
-        "redirect": "/dashboard/analysis",
+        "path": "/project",
+        "redirect": "/project/info",
         "exact": true
+      },
+      {
+        "path": "/users",
+        "redirect": "/users/list",
+        "exact": true
+      },
+      {
+        "path": "/users/list",
+        "name": "用户管理",
+        "component": dynamic({ loader: () => import('../UserMng/UserPage'), loading: require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/src/components/PageLoading/index').default }),
+        "exact": true
+      },
+      {
+        "path": "/project",
+        "name": "项目管理",
+        "routes": [
+          {
+            "path": "/project/info",
+            "name": "基础信息",
+            "component": dynamic({ loader: () => import('../ProjMng/ProjInfoPage'), loading: require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/src/components/PageLoading/index').default }),
+            "exact": true
+          },
+          {
+            "path": "/project/resource",
+            "name": "资源管理",
+            "component": dynamic({ loader: () => import('../ProjMng/ResourcePage'), loading: require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/src/components/PageLoading/index').default }),
+            "exact": true
+          },
+          {
+            "path": "/project/role",
+            "name": "角色管理",
+            "component": dynamic({ loader: () => import('../ProjMng/ResourcePage'), loading: require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/src/components/PageLoading/index').default }),
+            "exact": true
+          },
+          {
+            "component": () => React.createElement(require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
+          }
+        ]
       },
       {
         "path": "/dashboard",

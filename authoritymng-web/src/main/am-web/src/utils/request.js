@@ -67,6 +67,7 @@ export default function request(url, option) {
   const options = {
     expirys: isAntdPro(),
     ...option,
+    mode : 'cors',
   };
   /**
    * Produce fingerprints based on url and parameters
@@ -118,6 +119,7 @@ export default function request(url, option) {
       sessionStorage.removeItem(`${hashcode}:timestamp`);
     }
   }
+
   return fetch(url, newOptions)
     .then(checkStatus)
     .then(response => cachedSave(response, hashcode))
