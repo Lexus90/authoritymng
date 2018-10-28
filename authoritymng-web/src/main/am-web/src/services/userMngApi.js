@@ -8,6 +8,7 @@ export async function queryUser() {
 }
 
 export async function listUserPage(params) {
-    let {pageNum, pageSize} = params;
-    return request(`${URI}/api/AmUser/all/${pageNum}/${pageSize}`);
+    let {current, pageSize, userCode} = params;
+    userCode = !!userCode ? userCode : '';
+    return request(`${URI}/api/AmUser/all/${current}/${pageSize}?userCode=${userCode}`);
 }

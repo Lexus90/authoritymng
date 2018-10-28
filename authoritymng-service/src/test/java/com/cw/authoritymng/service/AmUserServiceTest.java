@@ -35,7 +35,8 @@ public class AmUserServiceTest {
 
     @Test
     public void listAllUser() throws Exception {
-        List<AmUser> list = amUserService.listAllUser(0, 10);
+
+        List<AmUser> list = amUserService.listPage(new AmUser(), 0, 10);
         log.info("list = {}", list);
     }
 

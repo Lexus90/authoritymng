@@ -7,9 +7,11 @@ export default {
     users: {
       list: [],
       pagination: {
-          pageNum:0,
+          total: 50,
+          current:0,
           pageSize:10,
       },
+      roles:[]
     }
   },
 
@@ -30,10 +32,12 @@ export default {
 
   reducers: {
       LIST_USER(state, action) {
+          let {total, current, pageSize } =action.payload
           return {
               ...state,
               users: {
-                  list:action.payload,
+                  list:action.payload.list,
+                  pagination:{total},
               },
           };
       },

@@ -21,14 +21,17 @@ public class BizDemo {
         context.start();
         AmUserFacade service = (AmUserFacade) context.getBean("amUserFacade");
         AmUserDTO amUserDTO = new AmUserDTO();
-//        amUserDTO.setId(3);
-        amUserDTO.setUserCode("caowei33");
-        amUserDTO.setUserName("曹伟33");
-        amUserDTO.setCreateTime(new Date());
-        amUserDTO.setUpdateTime(new Date());
-        Response<Boolean> resp = service.add(amUserDTO);
-        log.info("resp = {}", resp.getMessage());
-        log.info("userList = {}", service.listAll(0, 10).getData());
+        for (int i =0; i <20; i++) {
+            amUserDTO.setUserCode("caowei4"+i);
+            amUserDTO.setUserName("曹伟4"+i);
+            amUserDTO.setCreateTime(new Date());
+            amUserDTO.setUpdateTime(new Date());
+
+            Response<Boolean> resp = service.add(amUserDTO);
+            log.info("resp = {}", resp.getMessage());
+            log.info("userList = {}", service.listAll(0, 10).getData());
+        }
+//
 
     }
 

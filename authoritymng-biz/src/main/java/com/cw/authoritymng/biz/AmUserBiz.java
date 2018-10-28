@@ -5,6 +5,7 @@ import com.cw.authoritymng.dao.model.AmUser;
 import com.cw.authoritymng.facade.AmUserFacade;
 import com.cw.authoritymng.facade.ResultType.ResultType;
 import com.cw.authoritymng.facade.model.AmUserDTO;
+import com.cw.authoritymng.facade.page.Page;
 import com.cw.authoritymng.facade.response.Response;
 import com.cw.authoritymng.service.AmUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,11 +45,16 @@ public class AmUserBiz implements AmUserFacade {
         return null;
     }
 
-    public Response<List<AmUserDTO>> listAll(int pageNum, int pageSize) {
-        Response<List<AmUserDTO>> resp = new Response<List<AmUserDTO>>();
+    public Response<Page<AmUserDTO>> listPage(AmUserDTO userDTO, int pageNum, int pageSize) {
+        Response<Page<AmUserDTO>> resp = new Response<Page<AmUserDTO>>();
         try {
-            List<AmUserDTO> lit = ConverterUtils.convertList(amUserService.listAllUser(pageNum, pageSize), AmUserDTO.class);
-            resp.setData(lit);
+            AmUser user = ConverterUtils.convert(userDTO, AmUser.class);
+            List<AmUserDTO> lit = ConverterUtils.convertList(amUserService.listPage(user, pageNum, pageSize), AmUserDTO.class);
+            long tatol = amUserService.count(user);
+            Page<AmUserDTO> page = new Page<AmUserDTO>(lit, tatol);
+            page.setCurrent(pageNum);
+            page.setPageSize(pageSize);
+            resp.setData(page);
         } catch (Exception e) {
             resp.setResult(ResultType.SYSTEM_ERROR);
         }
