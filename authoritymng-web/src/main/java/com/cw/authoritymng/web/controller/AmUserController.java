@@ -1,6 +1,6 @@
 package com.cw.authoritymng.web.controller;
 
-import com.cw.authoritymng.service.AmUserService;
+import com.cw.authoritymng.facade.AmUserFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AmUserController {
 
     @Autowired
-    private AmUserService amUserService;
+    private AmUserFacade amUserFacade;
 
     @ResponseBody
     @RequestMapping(value = "/all/{pageNum}/{pageSize}", produces = {"application/json;charset=UTF-8"})
     public Object findAllUser(@PathVariable("pageNum") int pageNum, @PathVariable("pageSize") int pageSize){
-        return amUserService.listAllUser(pageNum,pageSize);
+        return amUserFacade.listAll(pageNum,pageSize);
     }
 }
