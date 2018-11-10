@@ -1,0 +1,38 @@
+<configuration>
+    <contextName>authority-mng</contextName>
+    <property resource = "variables1.properties"/>
+    <property name="pattern1" value="%date %level ${destination:-abc} ${HOSTNAME} %contextName  [%thread] %logger{10} [%file : %line] %msg%n"/>
+    <property name="pattern2" value="%d{HH:mm:ss.SSS} %contextName [%thread] [%-5level] [%logger{36}] - %msg%n"/>
+    <appender name="STDOUT1" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${pattern1}</Pattern>
+        </layout>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${fileName:-foo.log}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--<pattern>%date %level [%thread] %logger{10} [%file : %line] %msg%n</pattern>-->
+            <!--<pattern>${pattern1}</pattern>-->
+            <layout >
+                <Pattern>${pattern2}</Pattern>
+            </layout>
+        </encoder>
+
+    </appender>
+
+    <appender name="STDOUT2" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>${pattern2}</Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.cw.authoritymng.demo" level="TRACE" additivity="false">
+        <appender-ref ref="STDOUT1"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT2"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

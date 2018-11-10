@@ -46,39 +46,49 @@ let routes = [
     ],
     "routes": [
       {
-        "path": "/project",
-        "redirect": "/project/info",
+        "path": "/",
+        "redirect": "/web",
         "exact": true
       },
       {
-        "path": "/users",
-        "redirect": "/users/list",
+        "path": "/web",
+        "redirect": "/web/users",
         "exact": true
       },
       {
-        "path": "/users/list",
+        "path": "/web/project",
+        "redirect": "/web/project/info",
+        "exact": true
+      },
+      {
+        "path": "/web/users",
+        "redirect": "/web/users/list",
+        "exact": true
+      },
+      {
+        "path": "/web/users/list",
         "name": "用户管理",
         "component": dynamic({ loader: () => import('../UserMng/UserPage'), loading: require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
-        "path": "/project",
+        "path": "/web/project",
         "name": "项目管理",
         "routes": [
           {
-            "path": "/project/info",
+            "path": "/web/project/info",
             "name": "基础信息",
             "component": dynamic({ loader: () => import('../ProjMng/ProjInfoPage'), loading: require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/src/components/PageLoading/index').default }),
             "exact": true
           },
           {
-            "path": "/project/resource",
+            "path": "/web/project/resource",
             "name": "资源管理",
             "component": dynamic({ loader: () => import('../ProjMng/ResourcePage'), loading: require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/src/components/PageLoading/index').default }),
             "exact": true
           },
           {
-            "path": "/project/role",
+            "path": "/web/project/role",
             "name": "角色管理",
             "component": dynamic({ loader: () => import('../ProjMng/ResourcePage'), loading: require('/Users/caowei/code/java/authoritymng/authoritymng-web/src/main/am-web/src/components/PageLoading/index').default }),
             "exact": true

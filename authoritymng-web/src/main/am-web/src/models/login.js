@@ -5,6 +5,7 @@ import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
 import { reloadAuthorized } from '@/utils/Authorized';
 
+
 export default {
   namespace: 'login',
 

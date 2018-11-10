@@ -23,8 +23,7 @@ import { connect } from 'dva';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import styles from './style.less';
 
-
-
+const Search = Input.Search;
 
 @connect(({ users_md, loading }) => ({
     // loading: loading.effects['users/queryList'],
@@ -67,7 +66,7 @@ export default class UserMng extends PureComponent {
 
     search = ()=>{
         return (
-            <input placeholder="输入UserCode" onChange={this.searchChange}/>
+            <Search className={styles.search} placeholder="输入UserCode" onChange={this.searchChange}/>
         )
     };
 

@@ -1,5 +1,5 @@
 import fetch from 'dva/fetch';
-import { notification } from 'antd';
+import { notification, message } from 'antd';
 import router from 'umi/router';
 import hash from 'hash.js';
 import { isAntdPro } from './utils';
@@ -151,7 +151,11 @@ export default function request(url, option) {
         return;
       }
       if (status >= 404 && status < 422) {
-        router.push('/exception/404');
+          notification.error({
+              message: `请求错误 404`,
+              description: `请求错误 404`,
+          });
+        // router.push('/exception/404');
       }
     });
 }

@@ -52,8 +52,10 @@ export default {
   targets: {
     ie: 11,
   },
+  history: 'browser', // 默认是browser
   define: {
     APP_TYPE: process.env.APP_TYPE || '',
+    ENV: 'dev',
   },
   // 路由配置
   routes: pageRoutes,
@@ -100,7 +102,7 @@ export default {
     },
   },
   manifest: {
-    basePath: '/',
+    basePath: '/web',
   },
 
   chainWebpack: webpackPlugin,

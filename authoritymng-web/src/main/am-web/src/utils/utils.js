@@ -185,5 +185,13 @@ export function isAntdPro() {
 export function getURI() {
   let url = new URL(location.href);
   let origin = url.origin;
-  return origin.substr(0, origin.lastIndexOf(':') + 1)+'8080';
+    console.log("APP_TYPE = " + APP_TYPE);
+    console.log("process.env.NODE_ENV = " + process.env.NODE_ENV);
+  if (process.env.NODE_ENV === 'development') {
+      return origin.substr(0, origin.lastIndexOf(':') + 1)+'8080';
+  } else {
+      return origin;
+  }
 }
+
+export const URI = getURI();

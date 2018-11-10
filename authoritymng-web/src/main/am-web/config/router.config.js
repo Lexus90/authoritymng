@@ -18,29 +18,31 @@ export default [
     authority: ['admin', 'user'],
     routes: [
 
-      { path: '/project', redirect: '/project/info' },
-      { path: '/users', redirect: '/users/list' },
+      { path: '/', redirect: '/web' },
+      { path: '/web', redirect: '/web/users' },
+      { path: '/web/project', redirect: '/web/project/info' },
+      { path: '/web/users', redirect: '/web/users/list' },
       {
-          path: '/users/list',
+          path: '/web/users/list',
           name: '用户管理',
           component: './UserMng/UserPage',
       },
       {
-          path: '/project',
+          path: '/web/project',
           name: '项目管理',
           routes: [
               {
-                  path: '/project/info',
+                  path: '/web/project/info',
                   name: '基础信息',
                   component: './ProjMng/ProjInfoPage',
               },
               {
-                  path: '/project/resource',
+                  path: '/web/project/resource',
                   name: '资源管理',
                   component: './ProjMng/ResourcePage',
               },
               {
-                  path: '/project/role',
+                  path: '/web/project/role',
                   name: '角色管理',
                   component: './ProjMng/ResourcePage',
               },

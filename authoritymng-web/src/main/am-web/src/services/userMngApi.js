@@ -1,7 +1,5 @@
 import request from '@/utils/request';
-import {getURI} from "../utils/utils";
-
-const URI = getURI();
+import { URI} from "../utils/utils";
 
 export async function queryUser() {
     return request(`${URI}/api/users`);

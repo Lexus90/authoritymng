@@ -219,6 +219,9 @@ class BasicLayout extends React.PureComponent {
     // unless it is deployed in preview.pro.ant.design as demo
     const { rendering } = this.state;
     if ((rendering || process.env.NODE_ENV === 'production') && APP_TYPE !== 'site') {
+        console.log("process.env.NODE_ENV = " + process.env.NODE_ENV);
+        console.log("APP_TYPE = " + APP_TYPE);
+        console.log("DEV = " + ENV);
       return null;
     }
     return <SettingDrawer />;
